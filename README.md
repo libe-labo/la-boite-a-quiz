@@ -16,8 +16,8 @@ usage: generate-quiz.py [-h] [--dest DEST] [--src SRC] key
 ```
 
 * *key* : clé de la feuille dans Google Spreadsheet
-* *src* : dossier contenant les templates
-* *dest* : dossier de destination
+* *src* : dossier contenant les templates (`src/` par défaut)
+* *dest* : dossier de destination (`dist/` par défaut)
 
 ## To do
 
