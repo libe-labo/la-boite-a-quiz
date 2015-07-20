@@ -25,7 +25,7 @@ usage: generate-quiz.py [-h] [--dest DEST] [--src SRC] key
   * Dernier écran (selon le score)
   * Tweet
 * Améliorer le bouton Twitter
-* Minifier et copier automatiquement les `.js` et `.css` vers le dossier de destination
+* Minifier les `.js` et `.css`
 * Gérer d'autres formats d'entrée (`.tsv` / `.csv` local)
 
 ## Licence

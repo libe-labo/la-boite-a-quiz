@@ -9,6 +9,7 @@ import re
 import sys
 import pystache
 import random
+import shutil
 
 
 class Sheet():
@@ -88,19 +89,31 @@ if __name__ == '__main__':
     parser.add_argument('--src', type=str)
     args = parser.parse_args()
 
-    templateDir = os.path.dirname(os.path.realpath(__file__))
-    templateDir = os.path.join(templateDir, 'src')
+    srcDir = os.path.dirname(os.path.realpath(__file__))
+    destDir = os.path.join(srcDir, 'dist')
+
+    srcDir = os.path.join(srcDir, 'src')
     if args.src is not None:
-        templateDir = os.path.realpath(args.src)
-    destDir = os.path.join(templateDir, 'dist')
+        srcDir = os.path.realpath(args.src)
+
     if args.dest is not None:
         destDir = os.path.realpath(args.dest)
     if not os.path.isdir(destDir):
         os.mkdir(destDir)
 
+    print('Writing {0}...'.format(os.path.join(destDir, 'index.html')), end='')
+    sys.stdout.flush()
     with open(os.path.join(destDir, 'index.html'), 'w') as f:
-        with open(os.path.join(templateDir, 'template.html'), 'r') as template:
+        with open(os.path.join(srcDir, 'template.html'), 'r') as template:
             f.write(pystache.render(template.read(),
                                     dict(questions=Sheet(args.key).getData())))
+            print('\t[OK]')
 
-    # TODO : Minify and copy .js and .css files from templateDir to destDir
+    for f in ['script.js', 'style.css', 'colors.css']:
+        destFile = os.path.join(destDir, f)
+        print('Writing {0}...'.format(destFile), end='')
+        sys.stdout.flush()
+        shutil.copyfile(os.path.join(srcDir, f), destFile)
+        print('\t[OK]')
+
+    # TODO : Minify .js and .css files
