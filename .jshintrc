@@ -1,0 +1,32 @@
+{
+  "globalstrict": true,
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "latedef": true,
+  "noarg": true,
+  "regexp": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "trailing": true,
+  "smarttabs": true,
+  "white": true,
+  "validthis": true,
+  "forin": true,
+  "eqnull": true,
+  "loopfunc": true,
+
+  "camelcase": true,
+  "indent": 4,
+  "newcap": true,
+  "quotmark": "single",
+
+  "devel": true,
+  "browser": true,
+  "jquery": true,
+
+  "globals": {
+    "_": true
+  }
+}
