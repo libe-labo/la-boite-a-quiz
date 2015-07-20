@@ -89,13 +89,14 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     templateDir = os.path.dirname(os.path.realpath(__file__))
+    os.path.join(templateDir, 'src')
     if args.src is not None:
         templateDir = os.path.realpath(args.src)
-    destDir = templateDir
+    destDir = os.path.join(templateDir, 'dist')
     if args.dest is not None:
         destDir = os.path.realpath(args.dest)
-        if not os.path.isdir(destDir):
-            os.mkdir(destDir)
+    if not os.path.isdir(destDir):
+        os.mkdir(destDir)
 
     with open(os.path.join(destDir, 'index.html'), 'w') as f:
         with open(os.path.join(templateDir, 'template.html'), 'r') as template:
