@@ -295,7 +295,16 @@
 
 .result__tweet {
     text-align: center;
-    font-size: 2.7em;
+    font-size: 1.5em;
+}
+
+.result__tweet__link {
+    text-decoration: none;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.result__tweet__link i {
+    font-size: 2em;
 }
 
 .result__more {

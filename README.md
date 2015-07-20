@@ -24,7 +24,6 @@ usage: generate-quiz.py [-h] [--dest DEST] [--src SRC] key
 * Rendre dynamiques différents textes :
   * Dernier écran (selon le score)
   * Tweet
-* Améliorer le bouton Twitter
 * Minifier les `.js` et `.css`
 * Gérer d'autres formats d'entrée (`.tsv` / `.csv` local)
 
