@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title></title>
+
+        <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.7.0/lodash.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.min.js"></script>
+    </head>
+    <body>
+        <div class="indicator circle-button">
+            <div class="indicator__inner">
+                <span class="indicator__inner__current"></span>/<span class="indicator__inner__max"></span>
+            </div>
+        </div>
+        <div class="next-button next-button--hidden circle-button">
+            <span class="next-button__inner"><i class="fa fa-chevron-down"></i></span>
+        </div>
+        <div class="expand-button"><i class="fa fa-expand"></i></div>
+        <div id="wrapper">
+            {{#questions}}
+                <div class="question">
+                    <div layout="column">
+                        <div flex class="question__top" layout="column">
+                            <div class="question__top__title" flex{{#picture}} style="background-image:url({{value}})"{{/picture}}>
+                                {{#picture}}
+                                <div class="question__top__title__overlay"></div>
+                                {{/picture}}
+                                <span>{{&title}}</span>
+                            </div>
+                            {{#text}}
+                                <div class="question__top__text">{{value}}</div>
+                            {{/text}}
+                        </div>
+                        <div flex class="question__bottom" layout>
+                            <div class="question__bottom__answers">
+                                {{#answers}}
+                                    <div class="question__bottom__answers__answer" rel="{{id}}"><span>{{&text}}</span></div>
+                                {{/answers}}
+                            </div>
+                            <div class="question__bottom__result">
+                                <div class="question__bottom__result__ok" rel="{{ok}}">
+                                    <div class="question__bottom__result__ok__title">{{&okText.title}}</div>
+                                    <br />
+                                    {{&okText.text}}
+                                </div>
+                                <div class="question__bottom__result__ko">
+                                    <div class="question__bottom__result__ko__title">{{&koText.title}}</div>
+                                    <br />
+                                    {{&koText.text}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/questions}}
+            <div class="question result">
+                <div layout="column">
+                    <div flex class="result-top">
+                        <div class="result-top__wrapper">
+                            <div class="result__title">
+                                Score final
+                            </div>
+                            <div class="result__score">
+                                <span class="result__score__inner">
+                                    <span class="result__score__inner__current"></span>/<span class="result__score__inner__max"></span>
+                                </span>
+                            </div>
+                            <div class="result__text">
+                                <div class="result__text__ok">Vous n'êtes pas mauvais ! Partagez vite la bonne nouvelle avec vos amis.</div>
+                                <div class="result__text__ko">Il faudra s'entraîner... Voyez si vos amis font mieux que vous.</div>
+                            </div>
+                            <div class="result__tweet">
+                                <a href="" class="result__tweet__link" rel="XX"><i class="fa fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result__more" flex="20">
+                        <a href="http://www.liberation.fr/sciences/2015/07/16/pluton-en-fait-des-montagnes_1348677">À lire aussi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
