@@ -26,6 +26,7 @@ $(function() {
             };
 
         $('.indicator').removeClass(allClasses('color-')).addClass('color-' + colorIdx);
+        $('.overlay-message').removeClass(allClasses('color-')).addClass('color-' + colorIdx);
         $('.next-button').removeClass(allClasses('background-color-')).addClass('background-color-' + colorIdx);
     };
 
@@ -65,6 +66,17 @@ $(function() {
         } else {
             if (_.isEqual(ok, currentAnswers)) {
                 end(true);
+            } else {
+                $('.overlay-message').animate({
+                    opacity : 1
+                }, {
+                    duration : 300,
+                    done : function() {
+                        setTimeout(function() {
+                            $('.overlay-message').animate({ opacity : 0 }, { duration : 300 });
+                        }, 400);
+                    }
+                });
             }
         }
     };

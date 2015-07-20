@@ -36,6 +36,7 @@ class Sheet():
 
         except requests.exceptions.RequestException as e:
             print(e, file=sys.stderr)
+            sys.exit(1)
 
     def __requestData(self, path):
         r = requests.get(self.__endpoint + path)
@@ -101,8 +102,7 @@ if __name__ == '__main__':
     if not os.path.isdir(destDir):
         os.mkdir(destDir)
 
-    print('Writing {0}...'.format(os.path.join(destDir, 'index.html')), end='')
-    sys.stdout.flush()
+    print('Writing {0}...'.format(os.path.join(destDir, 'index.html')))
     with open(os.path.join(destDir, 'index.html'), 'w') as f:
         with open(os.path.join(srcDir, 'template.html'), 'r') as template:
             f.write(pystache.render(template.read(),
@@ -111,8 +111,7 @@ if __name__ == '__main__':
 
     for f in ['script.js', 'style.css', 'colors.css']:
         destFile = os.path.join(destDir, f)
-        print('Writing {0}...'.format(destFile), end='')
-        sys.stdout.flush()
+        print('Writing {0}...'.format(destFile))
         shutil.copyfile(os.path.join(srcDir, f), destFile)
         print('\t[OK]')
 
