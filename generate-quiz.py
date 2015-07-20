@@ -89,7 +89,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     templateDir = os.path.dirname(os.path.realpath(__file__))
-    os.path.join(templateDir, 'src')
+    templateDir = os.path.join(templateDir, 'src')
     if args.src is not None:
         templateDir = os.path.realpath(args.src)
     destDir = os.path.join(templateDir, 'dist')
@@ -102,3 +102,5 @@ if __name__ == '__main__':
         with open(os.path.join(templateDir, 'template.html'), 'r') as template:
             f.write(pystache.render(template.read(),
                                     dict(questions=Sheet(args.key).getData())))
+
+    # TODO : Minify and copy .js and .css files from templateDir to destDir
