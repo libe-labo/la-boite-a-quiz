@@ -41,7 +41,7 @@
 
 .question__top__title span {
     font-size: 3em;
-    box-shadow: inset 0 -6px 0 #fff;
+    box-shadow: inset 0 -4px 0 #fff;
     position: relative;
     z-index: 10;
 }
@@ -138,7 +138,7 @@
 }
 
 .question__bottom__result__ko__title {
-    box-shadow: inset 0 -6px 0 #C42121;
+    box-shadow: inset 0 -4px 0 #C42121;
 }
 
 .question__bottom__result__ok,
