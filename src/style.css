@@ -127,6 +127,10 @@
     font-size: 1.1em;
 }
 
+.question__bottom__result a {
+    color: inherit;
+}
+
 .question__bottom__result__ok__title,
 .question__bottom__result__ko__title {
     font-family: 'Fjalla One', sans-serif;
